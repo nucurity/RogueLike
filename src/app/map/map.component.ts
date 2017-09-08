@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-map',
@@ -96,8 +96,10 @@ export class MapComponent implements OnInit {
     }
     //update position
     this.colorSetter(this.coordinates[0],this.coordinates[1],"blue");
-    
+  }
 
+  function1(direction: number){
+    console.log("Info from map, moving up " + direction);
   }
 
   //change color on provided coordinate

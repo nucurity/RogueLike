@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { MapComponent } from '../map/map.component';
 
 @Component({
   selector: 'app-control',
@@ -7,24 +8,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ControlComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    this.direction = 1;
+  }
+
+  direction: number;
+
+  @Output() myEvent = new EventEmitter();
 
   moveUp(){
-    console.log("UP");
-  }
+    this.direction = 2;
+    console.log("direction is " + this.direction);
 
-  moveLeft(){
-    console.log("LEFT");
+    this.myEvent.emit(null);
   }
+  /*
+  move(direction: number){
 
-  moveRight(){
-    console.log("RIGHT");
+    if (direction == 1){
+      console.log("UP");
+    } 
+    else if (direction == 4){
+      console.log("LEFT");
+    } 
+    else if (direction == 2){
+      console.log("RIGHT");
+    } 
+    else if (direction == 3){
+      console.log("DOWN");
+    } 
   }
-
-  moveDown(){
-    console.log("DOWN");
-  }
-
+  */
   ngOnInit() {
   }
 
