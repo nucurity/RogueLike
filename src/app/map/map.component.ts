@@ -11,7 +11,7 @@ export class MapComponent implements OnInit {
   coordinates: number[];
 
   constructor() {
-    this.map = [];
+    
     this.refrashMap();
 
     this.coordinates = [5,5];
@@ -19,6 +19,7 @@ export class MapComponent implements OnInit {
   }
 
   refrashMap(){
+    this.map = [];
     for (var x = 0; x < 11; x++) {
       var row : string[] = []; 
       for (var y = 0; y < 11; y++) {    
@@ -46,7 +47,7 @@ export class MapComponent implements OnInit {
       currentCoordinate = this.coordinates[1];
       if (currentCoordinate == 0){
         this.refrashMap();
-        newCoordinate = 11;
+        newCoordinate = 10;
       }
       else{
         newCoordinate = currentCoordinate-1;
@@ -57,7 +58,7 @@ export class MapComponent implements OnInit {
     else if (step == 2) {
       this.colorSetter(this.coordinates[0],this.coordinates[1],"yellow");
       currentCoordinate = this.coordinates[0];
-      if (currentCoordinate == 11){
+      if (currentCoordinate == 10){
         this.refrashMap();
         newCoordinate = 0;
       }
@@ -70,7 +71,7 @@ export class MapComponent implements OnInit {
     else if (step == 3) {
       this.colorSetter(this.coordinates[0],this.coordinates[1],"yellow");
       currentCoordinate = this.coordinates[1];
-      if (currentCoordinate == 11){
+      if (currentCoordinate == 10){
         this.refrashMap();
         newCoordinate = 0;
       }
@@ -85,7 +86,7 @@ export class MapComponent implements OnInit {
       currentCoordinate = this.coordinates[0];
       if (currentCoordinate == 0){
         this.refrashMap();
-        newCoordinate = 11;
+        newCoordinate = 10;
       }
       else{
         newCoordinate = currentCoordinate-1;
