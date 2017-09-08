@@ -20,25 +20,31 @@ export class ControlComponent implements OnInit {
     this.direction = 2;
     console.log("direction is " + this.direction);
 
-    this.myEvent.emit(null);
+    this.myEvent.emit(1);
+
   }
-  /*
+
   move(direction: number){
 
     if (direction == 1){
       console.log("UP");
+      this.myEvent.emit(1);
+      
     } 
     else if (direction == 4){
       console.log("LEFT");
+      this.myEvent.emit(4);
     } 
     else if (direction == 2){
       console.log("RIGHT");
+      this.myEvent.emit(2);
     } 
     else if (direction == 3){
       console.log("DOWN");
+      this.myEvent.emit(3);
     } 
   }
-  */
+
   ngOnInit() {
   }
 

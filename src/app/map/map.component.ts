@@ -41,6 +41,7 @@ export class MapComponent implements OnInit {
     var newCoordinate;
     //moving UP
     if (step == 1) {
+      console.log("movingUp");
       this.colorSetter(this.coordinates[0],this.coordinates[1],"yellow");
       currentCoordinate = this.coordinates[1];
       if (currentCoordinate == 0){
