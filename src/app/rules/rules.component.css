@@ -1,0 +1,15 @@
+#rulesPane {
+    float: left;
+    
+    width: 119pt;
+    
+    height: 90pt;
+    
+    border: 2px solid black;
+    
+    border-radius: 12px;
+
+    margin-left: 10px;
+    
+    padding: 5pt;
+}

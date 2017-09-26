@@ -2,9 +2,8 @@
         
         <table id=mapTable>
                 <tr *ngFor="let row of map">
-                    <td *ngFor="let col of row" [ngStyle]="{ 'background-color': col }">
+                    <td *ngFor="let cell of row" [ngStyle]="{ 'background-color': cell.color }">
 
-                        
                     </td>
                 </tr>
             </table>

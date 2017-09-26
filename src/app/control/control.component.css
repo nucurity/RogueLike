@@ -20,7 +20,6 @@ td {
 
 #controlPane {
 
-    margin-top: 20pt;   
     
     width: 100pt;
     
@@ -30,5 +29,7 @@ td {
     
     border-radius: 12px;
     
-    margin: auto;
+    margin-left: 10pt;
+
+    float: left;
 }

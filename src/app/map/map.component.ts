@@ -1,4 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, EventEmitter, Output} from '@angular/core';
+import {Tile} from './tile';
 
 @Component({
   selector: 'app-map',
@@ -7,12 +8,17 @@ import { Component, OnInit} from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-  map: string[][];
+  @Output() myEvent = new EventEmitter();
+
+  map: Tile[][];
   coordinates: number[];
 
   constructor() {
     
     this.refrashMap();
+
+    var tile = new Tile;
+    console.log(tile.color + " " + " " + tile.value);
 
     this.coordinates = [5,5];
     this.moveHero(5);
@@ -21,14 +27,9 @@ export class MapComponent implements OnInit {
   refrashMap(){
     this.map = [];
     for (var x = 0; x < 11; x++) {
-      var row : string[] = []; 
+      var row : Tile[] = []; 
       for (var y = 0; y < 11; y++) {    
-        var cell = "green";
-        var chance = Math.floor((Math.random() * 100) + 1);
-        if(chance  < 60)
-          cell = "yellow";
-        else if ( chance < 90)
-          cell = "red";
+        var cell = new Tile();
       row.push(cell); 
       }
       this.map.push(row);
@@ -42,7 +43,6 @@ export class MapComponent implements OnInit {
     var newCoordinate;
     //moving UP
     if (step == 1) {
-      console.log("movingUp");
       this.colorSetter(this.coordinates[0],this.coordinates[1],"yellow");
       currentCoordinate = this.coordinates[1];
       if (currentCoordinate == 0){
@@ -96,7 +96,12 @@ export class MapComponent implements OnInit {
     //STAY
     else if (step == 5) {
     }
-    //update position
+    //update position and score
+    var row: Tile[] = this.map[this.coordinates[1]];
+    var tile = row[this.coordinates[0]];
+    this.myEvent.emit(tile.value);
+
+
     this.colorSetter(this.coordinates[0],this.coordinates[1],"blue");
   }
 
@@ -106,8 +111,23 @@ export class MapComponent implements OnInit {
 
   //change color on provided coordinate
   colorSetter(x: number, y: number, color: string){
-    var row: string[] = this.map[y];
-    row.splice(x,1,color);
+    var row: Tile[] = this.map[y];
+    
+    var tile = row[x];
+    if (color == "yellow"){
+      tile.color = color;
+      tile.type = 2;
+      tile.value = -1;
+    }
+    if (color == "blue"){
+      tile.color = color;
+      tile.type = 4;
+      tile.value = 0;
+    }
+    
+    tile.color = color;
+
+    row.splice(x,1,tile);
     this.map.splice(y,1,row);
   }
 
@@ -116,3 +136,5 @@ export class MapComponent implements OnInit {
   }
 
 }
+
+

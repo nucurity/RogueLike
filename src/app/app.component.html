@@ -7,8 +7,10 @@
 
 <div id="gamepane">
 
-  <app-map #map></app-map>
+  <app-map #map (myEvent)="score.updateScore($event)"></app-map>
+  <app-score #score></app-score>
   <app-control (myEvent)="map.moveHero($event)"></app-control>
+  <app-rules></app-rules>
 </div>
 
 
