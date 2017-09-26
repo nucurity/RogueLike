@@ -5,7 +5,7 @@ Web game developed on andgular4
 
 ## Idea
 
-Create randomly generated locations that where player can move and collecet goodies
+Create randomly generated locations that where player can move and collect goodies
 
 ## Rules
 
@@ -13,9 +13,9 @@ Green +5 score;
 Yellow -1 score;
 Red -5 score;
 
-## Special thanks
+## Special thanks to Bell
 
-to Bell with his pure internet connection. Without you this project would have been born
+Thank you for your pure internet connection.
 
 ## To be added
 
